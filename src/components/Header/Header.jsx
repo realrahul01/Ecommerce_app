@@ -1,19 +1,30 @@
 import {Button, Container,Nav,Navbar} from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import styles from './Header.module.css'
 import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useSelector } from 'react-redux';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
-  const counter = useSelector((state=>state.counter.value))
+  const counter = useSelector((state)=>state.counter.carts)
+  // console.log(counter)
   const{isDark,changeThemeHandler} = useContext(ThemeContext)
   // console.log(isDark)
+
+const navigate = useNavigate()
+const {isUserLogin,LogoutHandler} = useContext(AuthContext)
+// console.log(isUserLogin)
 
 const themeChangeHandler = ()=>{
   changeThemeHandler()
 }
 
+const clickHandler=()=>{
+  console.log('hello')
+  LogoutHandler()
+  navigate('/product')
+}
 
   return (
     <Navbar bg="primary" data-bs-theme="dark">
@@ -34,11 +45,24 @@ const themeChangeHandler = ()=>{
             </Nav.Link>
           </Nav>
             <Nav.Link>
-              <Button className='mx-2 btn-outline-light'> <i className="bi bi-box-arrow-in-right"></i> Login</Button>
-              <Button className='mx-2 btn-outline-light'> <i className="bi bi-person-plus-fill"></i> Register</Button>
-             <NavLink to="/cart">
-                <Button className='mx-2 btn-outline-light'> <i className="bi bi-cart3"></i> cart ({counter})</Button>
-              </NavLink>
+              {!isUserLogin && (
+                <>
+                <NavLink to='/login'>
+                  <Button className='mx-2 btn-outline-light'> <i className="bi bi-box-arrow-in-right"></i> Login</Button>
+                </NavLink>
+                <NavLink to="/login">
+                  <Button className='mx-2 btn-outline-light'> <i className="bi bi-person-plus-fill"></i> Register</Button>
+                </NavLink>
+                </>
+              )}
+              {isUserLogin && (
+                <>
+                  <Button onClick={clickHandler} className='btn-outline-light'> <i className="bi bi-box-arrow-left"></i> Logout</Button>
+                  <NavLink to="/cart">
+                    <Button className='mx-2 btn-outline-light'> <i className="bi bi-cart3"></i> cart ({counter.length})</Button>
+                  </NavLink>
+                </>
+              )}
               <Button onClick={themeChangeHandler}>{isDark? <i className="bi bi-moon-stars-fill"></i> : <i className="mx-2 bi bi-brightness-high-fill text-white"></i>}</Button>
             </Nav.Link>
         </Container>

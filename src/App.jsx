@@ -9,24 +9,29 @@ import About from './pages/About';
 import ProductDetails from './pages/ProductDetails';
 import ThemeProvider from './contexts/ThemeContext';
 import Cart from './pages/Cart';
+import Login from './pages/Login';
+import AuthProvider from './contexts/AuthContext';
 
 
 function App() {
   return (
     <>
+    <AuthProvider>
     <ThemeProvider>
       <Header/>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path='/product'>
-        <Route index element={<Product/>}/>
-        <Route path=":id" element={<ProductDetails/>}/>
-      </Route>
-      <Route path="/about" element={<About/>}/>
-      <Route path="/contact" element={<Contact/>}/>
-      <Route path='/cart' element={<Cart/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path='/product'>
+          <Route index element={<Product/>}/>
+          <Route path=":id" element={<ProductDetails/>}/>
+        </Route>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/login' element={<Login/>}/>
+      </Routes>
     </ThemeProvider>
+    </AuthProvider>
     </>
   )
 }

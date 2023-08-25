@@ -1,26 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 0,
+  carts: [],
+  totalQuantity : 0,
+  totalPrice : 0,  
 }
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    addCart: (state,action) => {
+      let find = state.carts.findIndex((item)=> item.id === action.payload.id) //basically what i am doing here i dont want that if user already selected a particular item it will go into the cart again rather than i want to increase its quantity 
+      if(find >= 0){
+        state.carts[find].quantity += 1
+      }else{
+        state.carts.push(action.payload);
+      }
     },
-    decrement: (state) => {
-      state.value -= 1
+    increaseItemQuantity : (state,action) =>{
+      state.carts = state.carts.map((item)=>{
+        if(item.id === action.payload){
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      })
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    decreaseItemQuantity : (state,action) =>{
+      state.carts = state.carts.map((item)=>{
+        if(item.id === action.payload){
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      })
     },
-  },
+    removeItem : (state,action)=>{
+      state.carts = state.carts.filter((item)=>{
+        return item.id !== action.payload
+      })
+    }
+  }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addCart,increaseItemQuantity,decreaseItemQuantity,removeItem } = counterSlice.actions
 
 export default counterSlice.reducer

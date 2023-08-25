@@ -1,0 +1,24 @@
+.container{
+    margin-top: 30px;
+    display: flex;
+}
+.btn_style button{
+    margin-top: 15px;
+    padding: 6px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    margin-right: 15px;
+    background-color: transparent;
+}
+.btn1:hover{
+    background-color: red;
+    color: #fff;
+}
+.btn2:hover{
+    background-color: green;
+    color: #fff;
+}
+.details{
+    position: absolute;
+    left: 83%;
+}
