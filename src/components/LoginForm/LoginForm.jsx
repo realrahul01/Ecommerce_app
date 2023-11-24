@@ -3,7 +3,9 @@ import { useContext, useRef, useState } from "react";
 import styles from "./LoginForm.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import Loader from "../Loader/Loader";
+// import { setLoginStatus } from "../AddCart/counterSlice";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -20,6 +22,7 @@ const LoginForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  // const dispatch = useDispatch()
   //error function
   const emailError = (msg) => {
     setEmailErrorMsg(msg);
@@ -58,6 +61,7 @@ const LoginForm = () => {
         alert("Login Successful");
         navigate("/product");
         loginHandler();
+        // dispatch(setLoginStatus(false))
       } else {
         alert("user not found... email password must be same");
       }

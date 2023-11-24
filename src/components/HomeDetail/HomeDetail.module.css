@@ -1,0 +1,29 @@
+.BannerImg{
+    background-image: url(../../images/heroBanner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    padding-top: 70px;
+    padding-left: 80px;
+}
+.hContainer{
+ color: red;   
+ font-weight: 600;
+}
+.tpContainer{
+    color: grey;
+    font-weight: 600;
+}
+.container button{
+    background-color: red;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    padding: 4px;
+    font-weight: 600;
+    font-size: 17px;
+}

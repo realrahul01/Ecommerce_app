@@ -6,3 +6,19 @@
     color: orange;
     text-decoration: underline;
 }
+.nav{
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    z-index: 12;
+}
+.menu{
+    display: none;
+}
+
+
+/* <-------media query--------> */
+
+@media screen and (max-width: 900px){
+    
+}

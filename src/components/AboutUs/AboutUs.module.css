@@ -1,0 +1,25 @@
+.responsiveContainerBlock{
+ /* width: 100vw;    */
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.SubHeading{
+    width: 60vw;
+    font-size: 18px;
+}
+.heading{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+.iconContainer{
+    text-align: center;
+    margin-top: 100px;
+    margin-right: 70px;
+}
+.iconContainer a{
+    padding-left: 10%;
+    cursor: pointer;
+}

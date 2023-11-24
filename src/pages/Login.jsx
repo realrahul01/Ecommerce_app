@@ -2,7 +2,9 @@ import LoginForm from "../components/LoginForm/LoginForm"
 
 const Login = () => {
   return (
-    <LoginForm/>
+    <div style={{height:'100vh'}}>
+      <LoginForm/>
+    </div>
   )
 }
 

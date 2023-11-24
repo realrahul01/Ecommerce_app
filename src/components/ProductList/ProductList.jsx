@@ -36,9 +36,10 @@ let items = products.filter((e)=>{
 
 
   return (
+    <div className={styles.produtsVal}>
     <div className="container text-center my-5">
       <div className="my-5">
-      <h1 className=" fw-bolder text-center">Latest Product</h1>
+      <h1 className="fw-bolder text-center">Latest Product</h1>
       <hr />
       <div>
         <h3>search item</h3>
@@ -53,6 +54,7 @@ let items = products.filter((e)=>{
           {items}
         </div>
       )}
+    </div>
     </div>
   )
 }

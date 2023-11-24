@@ -11,6 +11,8 @@ import ThemeProvider from './contexts/ThemeContext';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import AuthProvider from './contexts/AuthContext';
+import Footer from './components/Footer/Footer';
+import SuccessMessage from './components/ContactDetails/SuccessMessage';
 
 
 function App() {
@@ -29,7 +31,9 @@ function App() {
         <Route path="/contact" element={<Contact/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path="/success-message" element={<SuccessMessage />} />
       </Routes>
+      <Footer/>
     </ThemeProvider>
     </AuthProvider>
     </>

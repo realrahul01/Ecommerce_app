@@ -63,6 +63,7 @@ let items = cartProduct.map((e,index)=>{
 })
 
     return(
+        <div className={styles.addC}>
         <div className="row">
         {isUserLogin && (   
             <>
@@ -78,6 +79,7 @@ let items = cartProduct.map((e,index)=>{
         {!isUserLogin && (
             <Navigate to="/login"/>   //if user is not login not able to excess the login page with url also and if they do they will redirect into login page
         )}
+        </div>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { useSelector } from 'react-redux';
 import { AuthContext } from '../../contexts/AuthContext';
+import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   const counter = useSelector((state)=>state.counter.carts)
@@ -27,6 +28,7 @@ const clickHandler=()=>{
 }
 
   return (
+    <div className={styles.nav}>
     <Navbar bg="primary" data-bs-theme="dark">
         <Container style={{fontWeight:600,color:'#fff'}} >
           <Navbar.Brand style={{fontStyle:"italic",fontWeight:800,color:'#fff'}} href="#home">Online-Shopping</Navbar.Brand>
@@ -50,9 +52,9 @@ const clickHandler=()=>{
                 <NavLink to='/login'>
                   <Button className='mx-2 btn-outline-light'> <i className="bi bi-box-arrow-in-right"></i> Login</Button>
                 </NavLink>
-                <NavLink to="/login">
+                {/* <NavLink to="/login">
                   <Button className='mx-2 btn-outline-light'> <i className="bi bi-person-plus-fill"></i> Register</Button>
-                </NavLink>
+                </NavLink> */}
                 </>
               )}
               {isUserLogin && (
@@ -64,9 +66,11 @@ const clickHandler=()=>{
                 </>
               )}
               <Button onClick={themeChangeHandler}>{isDark? <i className="bi bi-moon-stars-fill"></i> : <i className="mx-2 bi bi-brightness-high-fill text-white"></i>}</Button>
+              <FiMenu className={styles.menu}/>
             </Nav.Link>
         </Container>
       </Navbar>
+    </div>
   )
 }
 

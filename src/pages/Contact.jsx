@@ -1,6 +1,8 @@
+import ContactUs from "../components/ContactDetails/ContactUs"
+
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <ContactUs/>
   )
 }
 
